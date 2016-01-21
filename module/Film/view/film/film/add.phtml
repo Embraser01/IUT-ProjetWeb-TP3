@@ -1,0 +1,40 @@
+<?php
+// module/Film/view/Film/Film/add.phtml:
+
+$title = 'Ajouter un Film';
+$this->headTitle($title);
+
+$form->setAttribute('action', $this->url('Film', array('action' => 'add')));
+$form->prepare();
+
+$form->get('title')->setAttribute('class', 'mdl-textfield__input');
+$form->get('title')->setAttribute('id', 'title');
+
+$form->get('artist')->setAttribute('class', 'mdl-textfield__input');
+$form->get('artist')->setAttribute('id', 'artist');
+?>
+<div class="mdl-card mdl-shadow--16dp centre_card">
+    <div class="mdl-card__supporting-text">
+
+        <?php echo $this->form()->openTag($form); ?>
+
+        <?php echo $this->formHidden($form->get('id')); ?>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <?php echo $this->formRow($form->get('title')); ?>
+            <label class="mdl-textfield__label" for="title">Nom de l'Film:</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <?php echo $this->formRow($form->get('artist')); ?>
+            <label class="mdl-textfield__label" for="artist">Nom de l'artiste:</label>
+        </div>
+
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect submit-button" type="submit">
+            Ajouter l'Film
+        </button>
+
+        <?php echo $this->form()->closeTag(); ?>
+
+    </div>
+</div>

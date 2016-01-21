@@ -1,0 +1,19 @@
+<div class="mdl-card mdl-shadow--16dp centre_card">
+    <div class="mdl-card__supporting-text">
+
+        <h3>Login success !</h3>
+        <p>Vous allez être redirigé vers l'accueil dans 3 sec.</p>
+
+    </div>
+    <a href="<?php echo $this->url('login/process', array('action' => 'logout')); ?>">
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+            Logout
+        </button>
+    </a>
+</div>
+
+<script>
+    setTimeout(function(){
+        window.location.href = '<?php echo $this->url('Film', array('action' => 'index')); ?>';
+    }, 3000);
+</script>

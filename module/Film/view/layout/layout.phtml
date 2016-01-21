@@ -1,0 +1,59 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle(' Marc-Antoine FERNANDES - Zend ')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        ->prependStylesheet('https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css')
+        ->prependStylesheet('https://fonts.googleapis.com/css?family=Roboto')
+        ->prependStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons')
+        ->prependStylesheet($this->basePath('css/style.css')); ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+        ->prependFile('https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js')
+        ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath('js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',)); ?>
+
+</head>
+<body>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row tabulation">
+            <!-- Title -->
+            <span class="mdl-layout-title"><a class="link-no-style mdl-color-text--white"
+                                              href="<?php echo $this->url('home') ?>"><?php echo $this->header_title; ?> - Film Module</a></span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="<?php echo $this->url('auth') ?>">Login</a>
+                <a class="mdl-navigation__link" href="<?php echo $this->url('success') ?>">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <?php echo $this->content; ?>
+        </div>
+    </main>
+
+    <footer class="mdl-mini-footer mdl-color--grey-900 centrer_texte">
+        <ul>
+            Site créé par Marc-Antoine FERNANDES
+        </ul>
+    </footer>
+</div>
+
+<?php echo $this->inlineScript() ?>
+</body>
+</html>

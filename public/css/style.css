@@ -1,0 +1,98 @@
+/*
+ * Default ressources
+ * @Embraser01
+ * Under Creative Commons - 2015
+ */
+
+/*=====HEADER=====*/
+
+.mdl-layout__content {
+    padding-top: 30px;
+}
+
+/*===== MISC =====*/
+
+html, body {
+    background-color: #E9E9E9;
+    font-family: 'Roboto', sans-serif;
+}
+
+.tabulation {
+    padding: 0 30px !important;
+}
+
+.no-interaction {
+    cursor: default !important;
+}
+
+.centre_card {
+    margin: 50px auto;
+}
+
+.messages {
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+}
+
+.messages > li {
+    text-align: center;
+}
+
+/*===== TABLE =====*/
+
+.table-Film {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: relative;
+}
+.table-Film > table {
+    width: 100%;
+}
+
+.table-Film > .fab {
+    position: relative;
+    right: 45px;
+    top: 70px;
+    width: 40px;
+    float: right;
+    z-index: 100;
+}
+
+.fab i {
+    color: white;
+}
+
+/*===== MENU =====*/
+
+#header-row {
+    padding-left: 30px !important;
+}
+
+/*===== FONT STYLE =====*/
+
+.link-no-style {
+    text-decoration: none;
+}
+
+i {
+    color: #9E9E9E;
+}
+
+/*===== STICKY FOOTER =====*/
+
+footer {
+    margin-bottom: auto;
+    padding: 16px 16px !important;
+}
+
+footer ul {
+    margin: auto !important;
+    padding: 0 !important;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,45 @@
+<?php
+// module/Film/view/Film/Film/index.phtml:
+
+$title = 'Mes Films';
+$this->headTitle($title);
+?>
+
+<div class="table-Film">
+
+    <div class="fab">
+        <a href="<?php echo $this->url('Film', array('action' => 'add')); ?>">
+            <button
+                class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-button--mini-fab">
+                <i class="material-icons">add</i>
+            </button>
+        </a>
+    </div>
+
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Title</th>
+            <th class="mdl-data-table__cell--non-numeric">Artist</th>
+            <th class="mdl-data-table__cell--non-numeric">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php foreach ($Films as $Film) : ?>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric"><?php echo $this->escapeHtml($Film->title); ?></td>
+                <td class="mdl-data-table__cell--non-numeric"><?php echo $this->escapeHtml($Film->artist); ?></td>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <a href="<?php echo $this->url('Film',
+                        array('action' => 'edit', 'id' => $Film->id)); ?>"><i class="material-icons">edit</i></a>
+                    <a href="<?php echo $this->url('Film',
+                        array('action' => 'delete', 'id' => $Film->id)); ?>"><i class="material-icons">delete</i></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+
