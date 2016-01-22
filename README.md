@@ -29,7 +29,7 @@ Puis dans **/config/autoload** renomer le fichier ```local.php.dist``` en ```loc
 Puis modifier le fichier **/config/autoload/global.php** en changeant la base utilisée.
 
 Importer la base de données en lançant le script suivant :
-```MySQL
+```SQL
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
