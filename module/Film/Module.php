@@ -80,7 +80,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new Film());
-                    return new TableGateway('z_Film', $dbAdapter, null, $resultSetPrototype);
+                    return new TableGateway('z2_Film', $dbAdapter, null, $resultSetPrototype);
                 },
                 'Film\Model\MyAuthStorage' => function ($sm) {
                     return new \Film\Model\MyAuthStorage('Film');
@@ -92,7 +92,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface {
                     //that password hashed with md5
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $dbTableAuthAdapter = new DbTableAuthAdapter($dbAdapter,
-                        'z_user', 'user_name', 'password', "sha(CONCAT(sha(?), '$this->_salt'))");
+                        'z2_User', 'username', 'password', "sha2(CONCAT(sha2(?), '$this->_salt'))");
 
                     $authService = new AuthenticationService();
                     $authService->setAdapter($dbTableAuthAdapter);

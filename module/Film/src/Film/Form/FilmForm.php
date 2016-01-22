@@ -17,12 +17,23 @@ class FilmForm extends Form
         ));
 
         $this->add(array(
-            'name' => 'title',
+            'name' => 'name',
             'type' => 'Text',
         ));
+
         $this->add(array(
-            'name' => 'artist',
+            'name' => 'kind',
             'type' => 'Text',
+        ));
+
+        $this->add(array(
+            'name' => 'release_year',
+            'type' => 'Zend\Form\Element\MonthSelect',
+            'options' => array(
+                'label' => 'Choisissez la date de sortie',
+                'min_year' => 1907,
+                'max_year' => 2019
+            )
         ));
     }
 }

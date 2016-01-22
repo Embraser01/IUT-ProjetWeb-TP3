@@ -7,11 +7,14 @@ $this->headTitle($title);
 $form->setAttribute('action', $this->url('Film', array('action' => 'add')));
 $form->prepare();
 
-$form->get('title')->setAttribute('class', 'mdl-textfield__input');
-$form->get('title')->setAttribute('id', 'title');
+$form->get('name')->setAttribute('class', 'mdl-textfield__input');
+$form->get('name')->setAttribute('id', 'name');
 
-$form->get('artist')->setAttribute('class', 'mdl-textfield__input');
-$form->get('artist')->setAttribute('id', 'artist');
+$form->get('kind')->setAttribute('class', 'mdl-textfield__input');
+$form->get('kind')->setAttribute('id', 'kind');
+
+$form->get('release_year')->setAttribute('class', 'mdl-textfield__input');
+$form->get('release_year')->setAttribute('id', 'release_year');
 ?>
 <div class="mdl-card mdl-shadow--16dp centre_card">
     <div class="mdl-card__supporting-text">
@@ -21,17 +24,22 @@ $form->get('artist')->setAttribute('id', 'artist');
         <?php echo $this->formHidden($form->get('id')); ?>
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <?php echo $this->formRow($form->get('title')); ?>
-            <label class="mdl-textfield__label" for="title">Nom de l'Film:</label>
+            <?php echo $this->formRow($form->get('name')); ?>
+            <label class="mdl-textfield__label" for="name">Nom du film :</label>
         </div>
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <?php echo $this->formRow($form->get('artist')); ?>
-            <label class="mdl-textfield__label" for="artist">Nom de l'artiste:</label>
+            <?php echo $this->formRow($form->get('kind')); ?>
+            <label class="mdl-textfield__label" for="kind">Genre du film :</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <?php echo $this->formRow($form->get('release_year')); ?>
+            <label class="mdl-textfield__label" for="kind">Date de sortie du film :</label>
         </div>
 
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect submit-button" type="submit">
-            Ajouter l'Film
+            Ajouter le film
         </button>
 
         <?php echo $this->form()->closeTag(); ?>
