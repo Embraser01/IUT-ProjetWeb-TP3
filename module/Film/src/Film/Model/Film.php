@@ -78,14 +78,6 @@ class Film implements InputFilterAwareInterface {
                 ),
             ));
 
-            $inputFilter->add(array(
-                'name' => 'release_year',
-                'validators' => array(
-                    array(
-                        'name' => 'Date'
-                    ),
-                ),
-            ));
 
             $this->inputFilter = $inputFilter;
         }

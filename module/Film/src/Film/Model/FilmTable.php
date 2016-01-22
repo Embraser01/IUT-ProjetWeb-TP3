@@ -22,6 +22,7 @@ class FilmTable {
         $sqlSelect = $this->tableGateway->getSql()->select();
         $sqlSelect->join('z2_FilmUser', 'z2_FilmUser.film_id = z2_Film.id', array(), 'left');
 
+
         $resultSet = $this->tableGateway->selectWith($sqlSelect);
         return $resultSet;
     }
@@ -40,7 +41,7 @@ class FilmTable {
         $data = array(
             'name' => $Film->name,
             'kind' => $Film->kind,
-            'release_year' => $Film->release_year
+            'release_year' => $Film->release_year . '-01'
         );
 
         $id = (int)$Film->id;
@@ -58,6 +59,30 @@ class FilmTable {
         }
     }
 
+    public function saveUserData($film_id, $user_id) {
+
+        $user_id = (int)$user_id;
+        $film_id = (int)$film_id;
+
+        $data = array(
+            'film_id' => $film_id,
+            'user_id' => $user_id,
+            'show_date' => date('Y-m-d'),
+        );
+
+        if (!is_null($this->getFilm($film_id))) {
+
+            $sqlStr = "INSERT IGNORE INTO `z2_FilmUser` (user_id, film_id, show_date)"
+                . " VALUES ("
+                . $data['user_id'] . ','
+                . $data['film_id'] . ',"'
+                . $data['show_date'] . '")';
+
+            $this->tableGateway->getAdapter()->query($sqlStr, \Zend\Db\Adapter\Adapter::QUERY_MODE_EXECUTE);
+
+        }
+    }
+
     public function getFilm($id) {
         $id = (int)$id;
 
@@ -67,33 +92,5 @@ class FilmTable {
         $row = $rowset->current();
 
         return $row;
-    }
-
-    public function saveUserData($film_id, $user_id) {
-
-        $user_id = (int)$user_id;
-        $film_id = (int)$film_id;
-
-        $data = array(
-            'film_id' => $film_id,
-            'user_id' => $user_id,
-            'date' => date('Y-m-d'),
-        );
-
-        if (!is_null($this->getFilm($film_id))) {
-            // On considere que l'utilisateur n'a pas déjà cliqué dessus vu que ZF2 ne supporte pas
-            // le "ON DUPLICATE KEY" ..........
-            $sql = $this->tableGateway->getSql()->insert();
-
-            $sql->into('z2_FilmUser')
-                ->columns(array('film_id', 'user_id', 'show_date'))
-                ->values($data);
-
-            \Zend\Debug\Debug::dump($sql);
-
-            $this->tableGateway->insertWith($sql);
-            \Zend\Debug\Debug::dump($this->tableGateway->table);
-
-        }
     }
 }
