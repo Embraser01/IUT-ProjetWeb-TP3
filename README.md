@@ -1,4 +1,4 @@
-# Application Zend - Statistiques de films #
+# :movie_camera: Application Zend - Statistiques de films #
 (on a refait un peu trakt.tv)  
 (on = Marc-Antoine FERNANDES & Nicolas POURPRIX)
 
