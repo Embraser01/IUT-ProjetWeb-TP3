@@ -26,4 +26,12 @@ class AbstractController extends AbstractActionController {
         }
         return $this->user_id;
     }
+
+    public function hasIdentity(){
+        return $this->getAuthService()->hasIdentity();
+    }
+
+    public function setTitleName($name){
+        $this->layout()->setVariable('header_title', $name);
+    }
 }

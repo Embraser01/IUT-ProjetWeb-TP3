@@ -11,6 +11,9 @@ class Film implements InputFilterAwareInterface {
     public $kind;
     public $name;
     public $release_year;
+    public $user_id;
+
+    public $is_see;
 
     protected $inputFilter;
 
@@ -79,10 +82,7 @@ class Film implements InputFilterAwareInterface {
                 'name' => 'release_year',
                 'validators' => array(
                     array(
-                        'name' => 'Date',
-                        'options' => array(
-                            'format' => 'Y',
-                        ),
+                        'name' => 'Date'
                     ),
                 ),
             ));

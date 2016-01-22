@@ -12,9 +12,9 @@ if ($this->messages) {
 
 $form = $this->form;
 $form->setAttribute('action', $this->url(
-    'auth',
+    'login/process',
     array(
-        'action'     => 'authenticate',
+        'action' => 'process'
     )
 ));
 $form->prepare();
@@ -33,24 +33,24 @@ $form->get('rememberme')->setAttribute('id', 'checkbox');
 
         <?php echo $this->form()->openTag($form); ?>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <?php echo $this->formRow($form->get('username')); ?>
-                <label class="mdl-textfield__label" for="user">Nom d'utilisateur:</label>
-            </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <?php echo $this->formRow($form->get('username')); ?>
+            <label class="mdl-textfield__label" for="user">Nom d'utilisateur:</label>
+        </div>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <?php echo $this->formRow($form->get('password')); ?>
-                <label class="mdl-textfield__label" for="pwd">Mot de passe:</label>
-            </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <?php echo $this->formRow($form->get('password')); ?>
+            <label class="mdl-textfield__label" for="pwd">Mot de passe:</label>
+        </div>
 
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox">
-                <?php echo $this->formRow($form->get('rememberme')); ?>
-                <span class="mdl-checkbox__label">Remember Me</span>
-            </label>
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox">
+            <?php echo $this->formRow($form->get('rememberme')); ?>
+            <span class="mdl-checkbox__label">Remember Me</span>
+        </label>
 
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect submit-button" type="submit">
-                Se connecter
-            </button>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect submit-button" type="submit">
+            Se connecter
+        </button>
 
         <?php echo $this->form()->closeTag(); ?>
 

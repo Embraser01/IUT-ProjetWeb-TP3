@@ -31,13 +31,16 @@
         <div class="mdl-layout__header-row tabulation">
             <!-- Title -->
             <span class="mdl-layout-title"><a class="link-no-style mdl-color-text--white"
-                                              href="<?php echo $this->url('home') ?>"><?php echo $this->header_title; ?> - Film Module</a></span>
+                                              href="<?php echo $this->url('home') ?>"><?php echo $this->header_title; ?>
+                    - Film Module</a></span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="<?php echo $this->url('auth') ?>">Login</a>
-                <a class="mdl-navigation__link" href="<?php echo $this->url('success') ?>">Logout</a>
+                <a class="mdl-navigation__link" href="<?php echo $this->url('Film', array('action' => 'mymovies')) ?>">Mes films</a>
+                <a class="mdl-navigation__link" href="<?php echo $this->url('login') ?>">Login</a>
+                <a class="mdl-navigation__link"
+                   href="<?php echo $this->url('login', array('action' => 'logout')) ?>">Logout</a>
             </nav>
         </div>
     </header>

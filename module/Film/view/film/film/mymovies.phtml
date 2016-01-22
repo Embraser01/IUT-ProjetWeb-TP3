@@ -1,7 +1,7 @@
 <?php
 // module/Film/view/Film/Film/index.phtml:
 
-$title = 'Les Films';
+$title = 'Mes Films';
 $this->headTitle($title);
 ?>
 
@@ -22,7 +22,6 @@ $this->headTitle($title);
             <th class="mdl-data-table__cell--non-numeric">Nom du film</th>
             <th class="mdl-data-table__cell--non-numeric">Genre</th>
             <th class="mdl-data-table__cell--non-numeric">Date de sortie</th>
-            <th class="mdl-data-table__cell--non-numeric"></th>
         </tr>
         </thead>
         <tbody>
@@ -32,18 +31,6 @@ $this->headTitle($title);
                 <td class="mdl-data-table__cell--non-numeric"><?php echo $this->escapeHtml($Film->name); ?></td>
                 <td class="mdl-data-table__cell--non-numeric"><?php echo $this->escapeHtml($Film->kind); ?></td>
                 <td class="mdl-data-table__cell--non-numeric"><?php echo $this->escapeHtml($Film->release_year); ?></td>
-                <td class="mdl-data-table__cell--non-numeric">
-                    <?php if (!is_null($Film->user_id)) { ?>
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-                               for="checkbox-<?php echo $Film->id ?>">
-                            <input type="checkbox" id="checkbox-<?php echo $Film->id ?>"
-                                   class="mdl-checkbox__input" checked disabled>
-                        </label>
-                    <?php } else { ?>
-                        <a class="link-no-style" href="<?php echo $this->url('Film', array('action' => 'see', 'id' => $Film->id)); ?>">Marquer
-                            comme lu</a>
-                    <?php } ?>
-                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>

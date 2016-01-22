@@ -16,7 +16,7 @@ use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Router\Http\RouteMatch;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface {
-    protected $whitelist = array("auth/login", "auth/login/process", "auth/signup", "auth/signup/process");
+    protected $whitelist = array("login", "login/process", "auth/signup", "auth/signup/process");
     private $_salt = "42jeej42";
 
     public function onBootstrap(MvcEvent $e) {
@@ -92,7 +92,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface {
                     //that password hashed with md5
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $dbTableAuthAdapter = new DbTableAuthAdapter($dbAdapter,
-                        'z2_User', 'username', 'password', "sha2(CONCAT(sha2(?), '$this->_salt'))");
+                        'z2_User', 'username', 'password', "sha2(CONCAT(sha2(?,256), '$this->_salt'),256)");
 
                     $authService = new AuthenticationService();
                     $authService->setAdapter($dbTableAuthAdapter);

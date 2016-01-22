@@ -13,55 +13,55 @@ return array(
     'router' => array(
         'routes' => array(
             'Film' => array(
-                'type'    => 'segment',
+                'type' => 'segment',
                 'options' => array(
-                    'route'    => '/Film[/:action][/:id]',
+                    'route' => '/film[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
+                        'id' => '[0-9]+',
                     ),
                     'defaults' => array(
                         'controller' => 'Film\Controller\Film',
-                        'action'     => 'index',
+                        'action' => 'index',
                     ),
                 ),
             ),
-            'auth' => array(
-                'type'    => 'Literal',
+            'login' => array(
+                'type' => 'Literal',
                 'options' => array(
-                    'route'    => '/auth',
+                    'route' => '/auth',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Film\Controller',
-                        'controller'    => 'Auth',
-                        'action'        => 'login',
+                        'controller' => 'Auth',
+                        'action' => 'login',
                     ),
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
                     'process' => array(
-                        'type'    => 'Segment',
+                        'type' => 'Segment',
                         'options' => array(
-                            'route'    => '/[:action]',
+                            'route' => '/[:action]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ),
                             'defaults' => array(
                                 'controller' => 'Film\Controller\Auth',
-                                'action'     => 'login',
+                                'action' => 'login',
                             ),
                         ),
                     ),
                 ),
             ),
             'success' => array(
-                'type'    => 'Literal',
+                'type' => 'Literal',
                 'options' => array(
-                    'route'    => '/success',
+                    'route' => '/success',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Film\Controller',
-                        'controller'    => 'Success',
-                        'action'        => 'index',
+                        'controller' => 'Success',
+                        'action' => 'index',
                     ),
                 ),
             ),
@@ -70,7 +70,7 @@ return array(
 
     'view_manager' => array(
         'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
         ),
         'template_path_stack' => array(
             'Film' => __DIR__ . '/../view',

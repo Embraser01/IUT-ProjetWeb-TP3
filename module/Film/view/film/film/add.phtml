@@ -13,8 +13,6 @@ $form->get('name')->setAttribute('id', 'name');
 $form->get('kind')->setAttribute('class', 'mdl-textfield__input');
 $form->get('kind')->setAttribute('id', 'kind');
 
-$form->get('release_year')->setAttribute('class', 'mdl-textfield__input');
-$form->get('release_year')->setAttribute('id', 'release_year');
 ?>
 <div class="mdl-card mdl-shadow--16dp centre_card">
     <div class="mdl-card__supporting-text">
@@ -33,9 +31,8 @@ $form->get('release_year')->setAttribute('id', 'release_year');
             <label class="mdl-textfield__label" for="kind">Genre du film :</label>
         </div>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div>
             <?php echo $this->formRow($form->get('release_year')); ?>
-            <label class="mdl-textfield__label" for="kind">Date de sortie du film :</label>
         </div>
 
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect submit-button" type="submit">
