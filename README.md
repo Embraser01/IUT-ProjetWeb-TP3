@@ -90,3 +90,7 @@ ALTER TABLE `z2_FilmUser`
   ADD CONSTRAINT `z2_FilmUser_z2_Films_id_fk` FOREIGN KEY (`film_id`) REFERENCES `z2_Film` (`id`);
 
 ```
+
+## Remarques ##
+
+* On ne peut pas s'inscrire sur l'application car le service d'authentification de zend (AuthService) n'a pas de méthode pour (ou alors très mal documenté)
